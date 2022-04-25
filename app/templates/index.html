@@ -1,0 +1,31 @@
+<img id="contact-header" src="/static/tabs/home-tab.png" width="200" height="100">
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="container" id="main-container-index">
+
+    <div class="container item ellie" id="name-green">
+        <img src="/static/goth-angel-logo2.png" height="250px" width="250px">
+        <video class="rc" loop src=/static/ellie-1000.mov id="localVideoStream" height="250" width="250" autoplay muted>></video>
+        <img src="/static/ellie-headshot.png" height="250px" width="250px">
+    </div>
+
+
+    <div class="container item kelly" id="name-yellow">
+        <img src="/static/kelly-headshot.png" height="250px" width="250px">
+        <img src="/static/letterhead-logo.png" height="250px" width="250px">
+        <video class="rc" loop src=/static/Letter-head-vid1.mov id="localVideoStream" height="250" width="250" autoplay muted>></video>
+    </div>
+
+    <div class="container item lindsey" id="name-blue">
+        <video class="rc" loop src=/static/loops-by-linds-vid.mov id="localVideoStream" height="250" width="250" autoplay muted>></video>
+        <img src="/static/linds-headshot.png" height="250px" width="250px">
+        <img src="/static/loopsbylindslogovector.png" height="250px" width="250px">
+    </div>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,41 @@
+
+
+<img id="contact-header" src="/static/tabs/contact-header-1.png" width="200" height="100">
+
+
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<div class="container-fluid contact-container w-100">
+
+    <div class="col align-self-center">
+        <img id="image-contact" src="{{url_for('static', filename='car-atbeach.png')}}" height=600px, width=400px alt="">   
+
+        <form id="form" method="post">
+            {{ form.csrf_token }}
+        
+            <div class="form-group">
+                <div class="form-label">
+                {{ form.email.label }}</div>
+                <div class="form-item">
+                {{ form.email(class='form-control') }}</div>
+                <div class="form-label">
+                {{ form.message.label }}</div>
+                <div class="form-item">
+                {{ form.message(class='form-control')}}</div>
+                <div class="form-label">
+                {{ form.submit(class='btn btn-outline-dark w-100') }}</div>
+            </div>
+        </form>
+        <video class="rc-contact" loop src="/static/contact-vid.mov" id="localVideoStream"  autoplay muted></video>
+    </div>
+</div>
+
+  
+{% endblock content %}
+
+
+

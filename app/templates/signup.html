@@ -1,0 +1,31 @@
+<img id="contact-header" src="/static/tabs/sign-up.png" width="200" height="100">
+
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h1>Sign Up</h1>
+    <form method="post">
+        {{ form.csrf_token }}
+        <div class="form-group container-fluid">
+            <div class="form-label">
+            {{ form.email.label }}</div>
+            <div class="form-item">
+            {{ form.email(class='form-control', placeholder='Email') }}</div>
+            <div class="form-label">
+            {{ form.username.label }}</div>
+            <div class="form-item">
+            {{ form.username(class='form-control', placeholder='Username') }}</div>
+            <div class="form-label">
+            {{ form.password.label }}</div>
+            <div class="form-item">
+            {{ form.password(class='form-control', placeholder='Password') }}</div>
+            <div class="form-label">
+            {{ form.confirm_pass.label }}</div>
+            <div class="form-item">
+            {{ form.confirm_pass(class='form-control', placeholder='Confirm Password') }}</div>
+            <div class="form-label">
+            {{ form.submit(class='btn btn-outline-dark w-100') }}</div>
+        </div>
+    </form>
+{% endblock content %}

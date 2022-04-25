@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Montserrat:ital,wght@1,100&family=Quicksand:wght@300&family=Roboto&display=swap');
+
+
+body{
+    background-color:#FFCDE3;
+  }
+
+html, h1, h2, h3{
+    font-family: 'Italiana', serif;
+    color: #1B1D41
+}
+
+/* TOP BASE.html */
+
+
+nav{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 40px;
+    height:100px;
+    background-color:#FFCDE3;
+    text-transform: uppercase;
+}
+
+#be-local:hover { 
+  text-decoration : none;
+  color: #DA2E3C;
+
+}
+
+#be-local {
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 140px; 
+  line-height: 140px;
+  color: #1B1D41;
+  padding-top: 20px; 
+  padding-bottom: 40px;
+}
+
+.how-it-works{
+  margin-left: 0px;
+}
+
+#logo-design{
+  height: 400px;
+  width: 400px; 
+  margin: 10px; 
+  position: relative; 
+  left: 270px;
+  bottom: 20px; 
+}
+
+.rc{
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+
+}
+
+/* INDEX.html */
+
+.rc-square{
+  width: 250px;
+  height: 250px; 
+}
+
+#name-green{
+  display: flex;
+  background-color: #018A50;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  padding: 30px;
+}
+
+#name-blue{
+  display: flex;
+  background-color:#1B1D41;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  padding: 30px;
+  margin-top: 30px;
+}
+
+#name-yellow{
+  display: flex;
+  background-color: #FCF851;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  padding: 30px;
+  margin-top: 30px;
+}
+
+
+
+/* about page  */
+
+.pink-phone{
+  position: relative;
+  top: 1800px; 
+}
+.child h1{
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 10px;
+  padding-right: 5px;
+  padding-left: 10px;  
+}
+
+.parent {
+  background-color: #71dfa0;
+  height: 200px;
+  width:100%;
+}
+
+
+.child-1{
+  background-color: #e6bcfe;
+  height: 100%;
+  width: 50%;
+  transition: transform 1s cubic-bezier(0.33,-0.02, 0.25, 0.92);
+  justify-content: center;
+}
+
+.child-2{
+  background-color:antiquewhite;  
+  height: 100%;
+  width: 50%;
+  transition: transform 1s cubic-bezier(0.33,-0.02, 0.25, 0.92);
+  justify-content: center;
+}
+
+.parent:hover .child-1{
+  transform: translateX(100%);
+  background-color: #b9b2f7;
+}
+
+.parent:hover .child-2{
+  transform: translateX(100%);
+  background-color: purple; 
+}
+
+/* CONTACT PAGE  */
+
+
+
+.contact-container{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}
+
+
+.rc-contact {
+  width:350px;
+  border: none;
+  height: 350px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#image-contact{
+  width:400px;
+  height:600px; 
+}
+
+
+
+
+/* FORM GROUPS */
+
+.form-group{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 35px;
+  padding: 0px; 
+  margin: 0px; 
+}
+
+.form-label{
+    padding-top: 30px;
+}
+
+.form-item{
+    padding: 3px;  
+}
+
+#form{
+  width: 400px; 
+  margin: 0px;
+}
+
+input{
+  border: none;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.479);
+  font-size: 20px;
+  width: 80%;
+  color: gray;
+  background-color: transparent;
+  outline: none;
+}
+
+
+
+
+
+
+
+/* FOOTER */
+
+.footer-container{
+  padding-top: 50px;
+}
+
+
+.footer-row-yellow{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: 'Italiana', serif;
+  background-color:#FCF851;
+  color: #E15491;
+}
+
+.footer-row-purple{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:#b9b2f7;
+}
+
+.copyright{
+  height: 250px;
+  width: 250px;
+  padding: none;
+}
+
+.footer-links{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 25px;
+}
+
+.link{
+  color:#E15491;
+  text-decoration: none;
+}
+
+a:hover { 
+  text-decoration : none;
+  color: #b9b2f7;
+
+}
+
+
+
+.footer-message h3{
+  color: #E15491;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  display: flex;
+  justify-content: center;
+}
