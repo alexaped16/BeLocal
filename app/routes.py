@@ -1,9 +1,10 @@
-import email
+
+from contextlib import redirect_stderr
 from app import app, db
 from flask import redirect, render_template, url_for, flash
 from flask_login import login_user, logout_user, login_required, current_user
 from app.forms import SignUpForm, LoginForm, ContactForm
-from app.models import Admin, User
+from app.models import Shop, User
 
 @app.route('/')
 def index():
@@ -15,19 +16,6 @@ def about():
     title = 'About'
     return render_template('about.html',  title=title)
 
-
-@app.route('/favorite')
-def favorite():
-    title = 'Favorite'
-
-    #VIEWING FAVORITES IN PROFILE 
-    favorite = current_user.favorites
-    subtotal = 0
-    for f in favorite:
-        subtotal+=int(f.quantity)
-    
-
-    return render_template('userprofile.html', favorite=favorite, subtotal=subtotal, title=title)
 
 
 @app.route('/signup', methods=["GET", "POST"])
@@ -80,49 +68,53 @@ def login():
 
 
 @app.route('/logout')
+@login_required
 def logout():
     logout_user()
     flash('You have successfully logged out', 'primary')
     return redirect(url_for('index'))
 
-##ADD TO FAVORITES 
-@app.route("/add_to_favorites/<shop_owner_id>")
+
+
+
+
+# ADD AND DELETE FAVORITES
+
+@app.route('/my_favorites')
 @login_required
-def addToFavorites(shop_owner_id):
-    title= 'Add to Favorites'
+def my_favorites():
+    title = 'My Favorites'
+    favorites = current_user.favorites
 
-    item_to_add = Favorite(shop_owner_id=shop_owner_id, user_id=current_user.id)
-    db.session.add(item_to_add)
-    db.session.commit()
-    
-    repeat_favorite = Favorite.query.filter_by(shop_owner_id=shop_owner_id, favoritor=current_user).first()
-    if repeat_favorite:
-        
-        flash('This shop owner has already been favorited!')
+    #VIEWING FAVORITES IN PROFILE 
+
+    return render_template('my_favorites.html', title=title, favorites=favorites)
+
+
+@app.route('/add-to-favorites/<shop_id>')
+@login_required
+def addToFavorites(shop_id):
+
+    shop_to_add = Shop.query.get_or_404(shop_id)
+    current_user.add_favorite(shop_to_add)
         
 
-    return render_template('index.html', title=title)
+    return redirect(url_for('my_favorites'))
+
 
 ##REMOVE FROM FAVORITES
-@app.route("/removeFromfavorite/<shop_owner_id>")
+@app.route('/remove-from-favorites/<shop_id>')
 @login_required
-def removeFromFavorite(shop_owner_id):
+def removeFromFavorites(shop_id):
 
-    favorite_to_remove = favorite.query.filter_by(shop_owner_id=shop_owner_id, favoritor=current_user).first()
-    db.session.delete(favorite_to_remove)
-    db.session.commit()
-
-    flash('Shop owner has been removed from your favorites!', 'success')
-    return redirect(url_for('index.html'))
+    shop_to_remove = Shop.query.get_or_404(shop_id)
+    current_user.remove_favorite(shop_to_remove)
 
 
-@app.route("/shop_owner_profile")
-def shop_owner_profile(shop_owner_id):
-    title = 'Shop Owner'
-    shop_owner = Admin.query.get_or_404(shop_owner_id)
 
-    return render_template('shop_owner_profile.html', shop_ownert=shop_owner, title=title)
 
+    flash(f'{shop_to_remove.shop_title} has been removed from your favorites.', 'success')
+    return redirect(url_for('my_favorites'))
 
 
 @app.route('/contact', methods=['POST', 'GET'])
@@ -130,14 +122,61 @@ def contact():
     form = ContactForm()
     title = 'Contact me'
     if form.validate_on_submit():
-        name = form.name.data
         email = form.email.data   
-        subject = form.subject.data 
         message = form.message.data
 
-        new_message = User(name=name, email=email, subject=subject, message=message)
+        new_message = User(email=email, message=message)
         
-        flash(f"Thank you for you {new_message.name}, I will return your message shortly", "success")
+        flash(f"Thank you for your message, {new_message.name}. I will get back to you soon!", "success")
         return redirect(url_for('index'))
 
     return render_template('contact.html', title=title, form=form)
+
+
+
+
+
+
+
+
+
+# SHOP PROFILES 
+
+@app.route('/goth_angel')
+def goth_angel():
+    title = 'Goth Angel'
+    return render_template('/shop-profile/goth_angel.html',  title=title)
+
+@app.route('/the_letter_head')
+def the_letter_head():
+    title = 'The Letter Head'
+    return render_template('/shop-profile/the_letter_head.html',  title=title)
+
+@app.route('/loops_by_linds')
+def loops_by_linds():
+    title = 'Loops by Linds'
+    return render_template('/shop-profile/loops_by_linds.html',  title=title)
+
+@app.route('/mela_project')
+def mela_projects():
+    return render_template('/shop-profile/mela_projects.html')
+
+@app.route('/jukias_closet')
+def jukias_closet():
+    return render_template('/shop-profile/jukias_closet.html')
+
+
+
+@app.route('/get_shop/<shop>')
+def get_shop(shop):
+    # url == f"url_for {{ Shop.url_for }}" 
+        
+    return redirect(url_for(f'{shop}'))
+    # return render_template('/shop-profile/jukias_closet.html')
+
+@app.route('/my_favorites')
+def get_favorites():
+    # url == f"url_for {{ Shop.url_for }}" 
+        
+    return redirect(url_for('my_favorites'))
+

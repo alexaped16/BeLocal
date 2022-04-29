@@ -1,30 +1,37 @@
-<img id="contact-header" src="/static/tabs/sign-up.png" width="200" height="100">
+<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#bff47b" fill-opacity="1" d="M0,288L14.1,277.3C28.2,267,56,245,85,224C112.9,203,141,181,169,160C197.6,139,226,117,254,128C282.4,139,311,181,339,170.7C367.1,160,395,96,424,74.7C451.8,53,480,75,508,90.7C536.5,107,565,117,593,133.3C621.2,149,649,171,678,149.3C705.9,128,734,64,762,58.7C790.6,53,819,107,847,128C875.3,149,904,139,932,117.3C960,96,988,64,1016,64C1044.7,64,1073,96,1101,106.7C1129.4,117,1158,107,1186,122.7C1214.1,139,1242,181,1271,170.7C1298.8,160,1327,96,1355,106.7C1383.5,117,1412,203,1426,245.3L1440,288L1440,0L1425.9,0C1411.8,0,1384,0,1355,0C1327.1,0,1299,0,1271,0C1242.4,0,1214,0,1186,0C1157.6,0,1129,0,1101,0C1072.9,0,1045,0,1016,0C988.2,0,960,0,932,0C903.5,0,875,0,847,0C818.8,0,791,0,762,0C734.1,0,706,0,678,0C649.4,0,621,0,593,0C564.7,0,536,0,508,0C480,0,452,0,424,0C395.3,0,367,0,339,0C310.6,0,282,0,254,0C225.9,0,198,0,169,0C141.2,0,113,0,85,0C56.5,0,28,0,14,0L0,0Z"></path>
+</svg>
 
 {% extends 'base.html' %}
 
 
 {% block content %}
-    <h1>Sign Up</h1>
-    <form method="post">
+
+<div class="container-fluid">
+    <img class="sign-up-image" src="/static/sign-up-message.png" height="300px" width="1000px">
+    <img class="sign-up-form-image" src="/static/sign-up-form.png" height="60px" width="200px">
+</div>
+
+    <form id="sign-up-form" method="post">
         {{ form.csrf_token }}
-        <div class="form-group container-fluid">
+        <div id="form" class="form-group container-fluid">
             <div class="form-label">
             {{ form.email.label }}</div>
             <div class="form-item">
-            {{ form.email(class='form-control', placeholder='Email') }}</div>
+            {{ form.email(class='form-control') }}</div>
             <div class="form-label">
             {{ form.username.label }}</div>
             <div class="form-item">
-            {{ form.username(class='form-control', placeholder='Username') }}</div>
+            {{ form.username(class='form-control') }}</div>
             <div class="form-label">
             {{ form.password.label }}</div>
             <div class="form-item">
-            {{ form.password(class='form-control', placeholder='Password') }}</div>
+            {{ form.password(class='form-control') }}</div>
             <div class="form-label">
             {{ form.confirm_pass.label }}</div>
             <div class="form-item">
-            {{ form.confirm_pass(class='form-control', placeholder='Confirm Password') }}</div>
-            <div class="form-label">
+            {{ form.confirm_pass(class='form-control') }}</div>
+            <div id=button class="form-label">
             {{ form.submit(class='btn btn-outline-dark w-100') }}</div>
         </div>
     </form>

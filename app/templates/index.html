@@ -1,30 +1,64 @@
-<img id="contact-header" src="/static/tabs/home-tab.png" width="200" height="100">
+<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#bff47b" fill-opacity="1" d="M0,256L7.7,250.7C15.5,245,31,235,46,218.7C61.9,203,77,181,93,192C108.4,203,124,245,139,250.7C154.8,256,170,224,186,213.3C201.3,203,217,213,232,229.3C247.7,245,263,267,279,229.3C294.2,192,310,96,325,96C340.6,96,356,192,372,197.3C387.1,203,403,117,418,90.7C433.5,64,449,96,465,138.7C480,181,495,235,511,229.3C526.5,224,542,160,557,160C572.9,160,588,224,604,245.3C619.4,267,635,245,650,224C665.8,203,681,181,697,176C712.3,171,728,181,743,170.7C758.7,160,774,128,790,106.7C805.2,85,821,75,836,112C851.6,149,867,235,883,229.3C898.1,224,914,128,929,117.3C944.5,107,960,181,975,197.3C991,213,1006,171,1022,170.7C1037.4,171,1053,213,1068,192C1083.9,171,1099,85,1115,80C1130.3,75,1146,149,1161,170.7C1176.8,192,1192,160,1208,133.3C1223.2,107,1239,85,1254,96C1269.7,107,1285,149,1301,165.3C1316.1,181,1332,171,1347,176C1362.6,181,1378,203,1394,197.3C1409,192,1425,160,1432,144L1440,128L1440,0L1432.3,0C1424.5,0,1409,0,1394,0C1378.1,0,1363,0,1347,0C1331.6,0,1316,0,1301,0C1285.2,0,1270,0,1254,0C1238.7,0,1223,0,1208,0C1192.3,0,1177,0,1161,0C1145.8,0,1130,0,1115,0C1099.4,0,1084,0,1068,0C1052.9,0,1037,0,1022,0C1006.5,0,991,0,975,0C960,0,945,0,929,0C913.5,0,898,0,883,0C867.1,0,852,0,836,0C820.6,0,805,0,790,0C774.2,0,759,0,743,0C727.7,0,712,0,697,0C681.3,0,666,0,650,0C634.8,0,619,0,604,0C588.4,0,573,0,557,0C541.9,0,526,0,511,0C495.5,0,480,0,465,0C449,0,434,0,418,0C402.6,0,387,0,372,0C356.1,0,341,0,325,0C309.7,0,294,0,279,0C263.2,0,248,0,232,0C216.8,0,201,0,186,0C170.3,0,155,0,139,0C123.9,0,108,0,93,0C77.4,0,62,0,46,0C31,0,15,0,8,0L0,0Z"></path>
+</svg>
 
 {% extends 'base.html' %}
 
 {% block content %}
 
 
+<div class="container text-center">
+    <h1 class="header-title" id="be-local">Be Local</h1>
+    <video class="rc-main" loop src="/static/be-local-main-vid.mov" id="localVideoStream"  autoplay muted></video>
+</div>
+
+<div class="row">
+    <div id="how-it-works" class="col-auto me-auto">
+      <img id="log-in-image" src="/static/how-it-works.png" height=140px; width=700px; class="img-fluid">
+    </div>
+</div>
+
+
 <div class="container" id="main-container-index">
 
-    <div class="container item ellie" id="name-green">
-        <img src="/static/goth-angel-logo2.png" height="250px" width="250px">
-        <video class="rc" loop src=/static/ellie-1000.mov id="localVideoStream" height="250" width="250" autoplay muted>></video>
-        <img src="/static/ellie-headshot.png" height="250px" width="250px">
+
+    <div class="container item" id="julia">
+        <a href="https://www.instagram.com/jukiascloset/"><img src="/static/jukias_closet/julia-logo.png" height="250px" width="250px"></a>
+        <a href="{{ url_for('get_shop', shop='jukias_closet') }}"><img src="/static/jukias_closet/julia-index.png" height="250px" width="250px"></a>
+        <a href="{{ url_for('addToFavorites', shop_id=6) }}"><img src="/static/add-2-favorites-vector.png" height="75px" width="188px"></a>
     </div>
 
 
-    <div class="container item kelly" id="name-yellow">
-        <img src="/static/kelly-headshot.png" height="250px" width="250px">
-        <img src="/static/letterhead-logo.png" height="250px" width="250px">
-        <video class="rc" loop src=/static/Letter-head-vid1.mov id="localVideoStream" height="250" width="250" autoplay muted>></video>
+
+    <div class="container item" id="evan">
+        <a href="{{ url_for('get_shop', shop='mela_projects') }}"><img src="/static/mela-project/evan-main.png" height="250px" width="250px"></a>
+        <a href="{{ url_for('addToFavorites', shop_id=5) }}"><img src="/static/add-2-favorites-purple.png" height="75px" width="188px"></a>
+        <a href="https://melaprojects.com/"><img src="/static/mela-project/mela-logo.png" height="250px" width="250px"></a>
     </div>
 
-    <div class="container item lindsey" id="name-blue">
-        <video class="rc" loop src=/static/loops-by-linds-vid.mov id="localVideoStream" height="250" width="250" autoplay muted>></video>
-        <img src="/static/linds-headshot.png" height="250px" width="250px">
-        <img src="/static/loopsbylindslogovector.png" height="250px" width="250px">
+    <div class="container item" id="linds">
+        <a href="{{ url_for('addToFavorites', shop_id=7) }}"><img src="/static/add-2-favorites-purple.png" height="75px" width="188px"></a>
+        <a href="https://www.instagram.com/loopsbylinds/"><img src="/static/loopsbylindslogovector.png" height="250px" width="250px"></a>
+        <a href="{{ url_for('get_shop', shop='loops_by_linds') }}"><img src="/static/loops by linds/lindsey-image-url.png" height="250px" width="250px"></a>
     </div>
+
+    <div class="container item " id="ellie">
+        <a href="{{ url_for('addToFavorites', shop_id=8) }}"><img src="/static/add-2-favorites-vector.png" height="75px" width="188px"></a>
+        <a href="https://www.instagram.com/gothangel_jewelry/"><img src="/static/goth angel/goth-angel-logo2.png" height="250px" width="250px"></a>
+        <a href="{{ url_for('get_shop', shop='goth_angel') }}"><img src="/static/goth angel/ellie-image-url.png" height="250px" width="250px"></a>
+
+    </div>
+
+
+    <div class="container item" id="kelly">
+        <a href="{{ url_for('get_shop', shop='the_letter_head') }}"><img src="/static/the-letter-head/kelly-image-url.png" height="250px" width="250px"></a>
+        <a href="https://www.instagram.com/the__letterhead/"><img src="/static/the-letter-head/letterhead-logo.png" height="250px" width="250px"></a>
+        <a href="{{ url_for('addToFavorites', shop_id=10) }}"><img src="/static/add-2-favorites-vector.png" height="75px" width="188px"></a>
+    </div>
+
+
+
+
 
 </div>
 
