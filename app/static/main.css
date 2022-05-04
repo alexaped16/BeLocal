@@ -234,36 +234,37 @@ nav{
 }
 
 
-.rc-contact {
-  width:150px;
-  border: none;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover; 
-  position: relative;
-  right: 80px;
-
-}
-
 #contact-me{
   position: relative;
-  right: 390px;
-  top: 70px; 
+  right: 300px;
+  
 
 }
 
 #image-contact{
   position: relative;
-  top: 150px; 
-  left: 200px; 
+  left: 1000px; 
+  bottom: 100px;
+}
 
+#image-contact-2{
+  position: relative;
+  top: 330px; 
+  left: 230px; 
+}
+
+#image-alexa{
+  position: relative;
+  top: 250px; 
+  right: 700px;
 
 }
 
+
 #contact-form{
   position: relative;
-  left: 800px; 
-  bottom: 650px;
+  left: 520px; 
+  bottom: 500px;
   width: 300px;
 }
 
