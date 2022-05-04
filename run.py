@@ -1,5 +1,5 @@
 from app import app, db
-from app.models import Contact, User, Shop, user_shop
+from app.models import Contact, User, Shop
 
 @app.shell_context_processor
 def make_context():
